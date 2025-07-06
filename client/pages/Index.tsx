@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   const [cartCount, setCartCount] = useState(0);
@@ -33,7 +34,7 @@ export default function Index() {
     },
     {
       id: 2,
-      name: "신선�� 시금치",
+      name: "신선한 시금치",
       price: "3,200원",
       originalPrice: "4,200원",
       image:
@@ -118,12 +119,22 @@ export default function Index() {
   ];
 
   const categories = [
-    { name: "채소", icon: "🥬", count: 45 },
-    { name: "과일", icon: "🍎", count: 23 },
-    { name: "나물/산채", icon: "🌿", count: 28 },
-    { name: "곡물/콩류", icon: "🌾", count: 15 },
-    { name: "건조식품", icon: "🌶️", count: 18 },
-    { name: "약초/허브", icon: "🍃", count: 12 },
+    { name: "채소", icon: "🥬", count: 24, link: "/categories/vegetables" },
+    { name: "과일", icon: "🍎", count: 15, link: "/categories/fruits" },
+    {
+      name: "나물/산채",
+      icon: "🌿",
+      count: 28,
+      link: "/categories/wild-vegetables",
+    },
+    { name: "곡물/콩류", icon: "🌾", count: 11, link: "/categories/grains" },
+    {
+      name: "건조식품",
+      icon: "🌶️",
+      count: 18,
+      link: "/categories/dried-foods",
+    },
+    { name: "약초/허브", icon: "🍃", count: 12, link: "/categories/herbs" },
   ];
 
   const addToCart = (productId: number) => {
@@ -265,20 +276,19 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {categories.map((category, index) => (
-              <Card
-                key={index}
-                className="group cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                    {category.icon}
-                  </div>
-                  <h4 className="font-semibold mb-1">{category.name}</h4>
-                  <p className="text-sm text-muted-foreground">
-                    {category.count}개 상품
-                  </p>
-                </CardContent>
-              </Card>
+              <Link key={index} to={category.link}>
+                <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <CardContent className="p-6 text-center">
+                    <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                      {category.icon}
+                    </div>
+                    <h4 className="font-semibold mb-1">{category.name}</h4>
+                    <p className="text-sm text-muted-foreground">
+                      {category.count}개 상품
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
