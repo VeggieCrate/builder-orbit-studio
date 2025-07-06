@@ -196,10 +196,6 @@ export default function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="space-y-4">
-                <Badge className="bg-primary/10 text-primary hover:bg-primary/20">
-                  <Leaf className="w-3 h-3 mr-1" />
-                  100% 유기농 인증
-                </Badge>
                 <h2 className="text-4xl md:text-6xl font-bold leading-tight">
                   <span className="text-primary">신선한</span>
                   <br />
