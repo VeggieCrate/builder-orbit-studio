@@ -24,7 +24,8 @@ export default function Index() {
       name: "방울토마토",
       price: "6,500원",
       originalPrice: "8,500원",
-      image: "/api/placeholder/300/300",
+      image:
+        "https://images.pexels.com/photos/14657386/pexels-photo-14657386.jpeg",
       rating: 4.9,
       reviews: 156,
       discount: "24%",
@@ -35,7 +36,8 @@ export default function Index() {
       name: "신선한 시금치",
       price: "3,200원",
       originalPrice: "4,200원",
-      image: "/api/placeholder/300/300",
+      image:
+        "https://images.pexels.com/photos/8557317/pexels-photo-8557317.jpeg",
       rating: 4.6,
       reviews: 89,
       discount: "24%",
@@ -46,7 +48,8 @@ export default function Index() {
       name: "국산 당근",
       price: "2,800원",
       originalPrice: "3,600원",
-      image: "/api/placeholder/300/300",
+      image:
+        "https://images.pexels.com/photos/5713740/pexels-photo-5713740.jpeg",
       rating: 4.7,
       reviews: 203,
       discount: "22%",
@@ -57,7 +60,8 @@ export default function Index() {
       name: "신선 배추",
       price: "4,500원",
       originalPrice: "6,000원",
-      image: "/api/placeholder/300/300",
+      image:
+        "https://images.pexels.com/photos/9070122/pexels-photo-9070122.jpeg",
       rating: 4.8,
       reviews: 178,
       discount: "25%",
@@ -68,7 +72,8 @@ export default function Index() {
       name: "호박",
       price: "3,800원",
       originalPrice: "5,000원",
-      image: "/api/placeholder/300/300",
+      image:
+        "https://images.pexels.com/photos/14015359/pexels-photo-14015359.jpeg",
       rating: 4.5,
       reviews: 124,
       discount: "24%",
@@ -79,7 +84,8 @@ export default function Index() {
       name: "곶감",
       price: "12,000원",
       originalPrice: "15,000원",
-      image: "/api/placeholder/300/300",
+      image:
+        "https://images.pexels.com/photos/9540184/pexels-photo-9540184.jpeg",
       rating: 4.9,
       reviews: 95,
       discount: "20%",
@@ -90,7 +96,8 @@ export default function Index() {
       name: "말린 고추",
       price: "8,500원",
       originalPrice: "11,000원",
-      image: "/api/placeholder/300/300",
+      image:
+        "https://images.pexels.com/photos/15661866/pexels-photo-15661866.jpeg",
       rating: 4.7,
       reviews: 67,
       discount: "23%",
@@ -101,7 +108,8 @@ export default function Index() {
       name: "참외",
       price: "7,200원",
       originalPrice: "9,500원",
-      image: "/api/placeholder/300/300",
+      image:
+        "https://images.pexels.com/photos/9540184/pexels-photo-9540184.jpeg",
       rating: 4.8,
       reviews: 142,
       discount: "24%",
