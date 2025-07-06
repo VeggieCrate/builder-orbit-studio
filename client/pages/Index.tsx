@@ -15,9 +15,12 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
+import { useWishlist } from "@/contexts/WishlistContext";
 
 export default function Index() {
-  const [cartCount, setCartCount] = useState(0);
+  const { state: cartState, addItem } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   const featuredProducts = [
     {
@@ -137,8 +140,34 @@ export default function Index() {
     { name: "약초/허브", icon: "🍃", count: 12, link: "/categories/herbs" },
   ];
 
-  const addToCart = (productId: number) => {
-    setCartCount((prev) => prev + 1);
+  const handleAddToCart = (product: any) => {
+    addItem({
+      id: product.id.toString(),
+      name: product.name,
+      price: product.price,
+      originalPrice: product.originalPrice,
+      image: product.image,
+      category: "특가상품",
+    });
+  };
+
+  const handleWishlistToggle = (product: any) => {
+    const wishlistItem = {
+      id: product.id.toString(),
+      name: product.name,
+      price: product.price,
+      originalPrice: product.originalPrice,
+      image: product.image,
+      category: "특가상품",
+      rating: product.rating,
+      reviews: product.reviews,
+    };
+
+    if (isInWishlist(product.id.toString())) {
+      removeFromWishlist(product.id.toString());
+    } else {
+      addToWishlist(wishlistItem);
+    }
   };
 
   return (
@@ -191,17 +220,21 @@ export default function Index() {
             <Button variant="ghost" size="icon">
               <User className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="icon">
-              <Heart className="w-5 h-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="relative">
-              <ShoppingCart className="w-5 h-5" />
-              {cartCount > 0 && (
-                <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs">
-                  {cartCount}
-                </Badge>
-              )}
-            </Button>
+            <Link to="/wishlist">
+              <Button variant="ghost" size="icon">
+                <Heart className="w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/cart">
+              <Button variant="ghost" size="icon" className="relative">
+                <ShoppingCart className="w-5 h-5" />
+                {cartState.totalItems > 0 && (
+                  <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs">
+                    {cartState.totalItems}
+                  </Badge>
+                )}
+              </Button>
+            </Link>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="w-5 h-5" />
             </Button>
@@ -271,7 +304,7 @@ export default function Index() {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4">카테고리별 쇼핑</h3>
             <p className="text-muted-foreground">
-              다양한 신선 농산물을 카테고리별로 만나보세요
+              다양한 신선 농산물을 카���고리별로 만나보세요
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -300,7 +333,7 @@ export default function Index() {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4">인기 상품</h3>
             <p className="text-muted-foreground">
-              가장 사랑받는 신선 농산물들을 만나보세요
+              가장 사랑받는 ���선 농산물들을 만나보세요
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -332,9 +365,16 @@ export default function Index() {
                     <Button
                       size="icon"
                       variant="secondary"
-                      className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className={`absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                        isInWishlist(product.id.toString())
+                          ? "text-red-500"
+                          : ""
+                      }`}
+                      onClick={() => handleWishlistToggle(product)}
                     >
-                      <Heart className="w-4 h-4" />
+                      <Heart
+                        className={`w-4 h-4 ${isInWishlist(product.id.toString()) ? "fill-current" : ""}`}
+                      />
                     </Button>
                   </div>
                   <div className="p-4">
@@ -362,7 +402,7 @@ export default function Index() {
                     </div>
                     <Button
                       className="w-full"
-                      onClick={() => addToCart(product.id)}
+                      onClick={() => handleAddToCart(product)}
                     >
                       장바구니 담기
                     </Button>
