@@ -5,9 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
+import { useWishlist } from "@/contexts/WishlistContext";
 
 export default function Vegetables() {
-  const [cartCount, setCartCount] = useState(0);
+  const { state: cartState, addItem } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const [searchQuery, setSearchQuery] = useState("");
 
   const vegetables = [
     {
@@ -180,9 +184,41 @@ export default function Vegetables() {
     },
   ];
 
-  const addToCart = () => {
-    setCartCount((prev) => prev + 1);
+  const handleAddToCart = (vegetable: any, index: number) => {
+    addItem({
+      id: `vegetable-${index}`,
+      name: vegetable.name,
+      price: vegetable.price,
+      originalPrice: vegetable.originalPrice,
+      image:
+        "https://images.pexels.com/photos/8557317/pexels-photo-8557317.jpeg",
+      category: "채소",
+    });
   };
+
+  const handleWishlistToggle = (vegetable: any, index: number) => {
+    const wishlistItem = {
+      id: `vegetable-${index}`,
+      name: vegetable.name,
+      price: vegetable.price,
+      originalPrice: vegetable.originalPrice,
+      image:
+        "https://images.pexels.com/photos/8557317/pexels-photo-8557317.jpeg",
+      category: "채소",
+      rating: vegetable.rating,
+      reviews: vegetable.reviews,
+    };
+
+    if (isInWishlist(`vegetable-${index}`)) {
+      removeFromWishlist(`vegetable-${index}`);
+    } else {
+      addToWishlist(wishlistItem);
+    }
+  };
+
+  const filteredVegetables = vegetables.filter((vegetable) =>
+    vegetable.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -201,20 +237,27 @@ export default function Vegetables() {
             <div className="hidden md:flex items-center gap-2 max-w-sm">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                <Input placeholder="채소 검색..." className="pl-10" />
+                <Input
+                  placeholder="채소 검색..."
+                  className="pl-10"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
             </div>
             <Button variant="outline" size="icon">
               <Filter className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="relative">
-              <ShoppingCart className="w-5 h-5" />
-              {cartCount > 0 && (
-                <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs">
-                  {cartCount}
-                </Badge>
-              )}
-            </Button>
+            <Link to="/cart">
+              <Button variant="ghost" size="icon" className="relative">
+                <ShoppingCart className="w-5 h-5" />
+                {cartState.totalItems > 0 && (
+                  <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs">
+                    {cartState.totalItems}
+                  </Badge>
+                )}
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -229,7 +272,7 @@ export default function Vegetables() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {vegetables.map((vegetable, index) => (
+          {filteredVegetables.map((vegetable, index) => (
             <Card
               key={index}
               className="group cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
@@ -242,9 +285,14 @@ export default function Vegetables() {
                   <Button
                     size="icon"
                     variant="secondary"
-                    className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className={`absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                      isInWishlist(`vegetable-${index}`) ? "text-red-500" : ""
+                    }`}
+                    onClick={() => handleWishlistToggle(vegetable, index)}
                   >
-                    <Heart className="w-4 h-4" />
+                    <Heart
+                      className={`w-4 h-4 ${isInWishlist(`vegetable-${index}`) ? "fill-current" : ""}`}
+                    />
                   </Button>
                 </div>
                 <div className="p-4">
@@ -263,7 +311,10 @@ export default function Vegetables() {
                       {vegetable.originalPrice}
                     </span>
                   </div>
-                  <Button className="w-full" onClick={addToCart}>
+                  <Button
+                    className="w-full"
+                    onClick={() => handleAddToCart(vegetable, index)}
+                  >
                     장바구니 담기
                   </Button>
                 </div>
