@@ -342,7 +342,7 @@ export default function Index() {
                       className="w-full"
                       onClick={() => addToCart(product.id)}
                     >
-                      장바구니 담기
+                      ���바구니 담기
                     </Button>
                   </div>
                 </CardContent>
@@ -362,7 +362,7 @@ export default function Index() {
               </div>
               <h4 className="text-xl font-semibold mb-2">무료 배송</h4>
               <p className="text-muted-foreground">
-                5만원 이상 주문 시 전국 무료 배송으로 신선하��� 배달해드립니다.
+                5만원 이상 주문 시 전국 무료 배송으로 신선하게 배달해드립니다.
               </p>
             </div>
             <div className="text-center">
@@ -399,7 +399,7 @@ export default function Index() {
                 <h1 className="text-xl font-bold text-primary">신선마켓</h1>
               </div>
               <p className="text-muted-foreground mb-4">
-                농장에서 직접 배송되는 신선한 유기농 농산물을 만나보세요.
+                농장에서 직접 배송되는 신선한 농산물을 만나보세요.
               </p>
               <div className="flex items-center gap-2">
                 <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
