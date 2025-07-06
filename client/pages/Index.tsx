@@ -54,7 +54,7 @@ export default function Index() {
     },
     {
       id: 4,
-      name: "유기농 배추",
+      name: "신선 배추",
       price: "4,500원",
       originalPrice: "6,000원",
       image: "/api/placeholder/300/300",
@@ -204,8 +204,8 @@ export default function Index() {
                   <span className="text-primary">집까지</span>
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-md">
-                  농장에서 바로 배송되는 신선한 유기농 농산물을 만나보세요.
-                  건강한 식탁의 시작입니다.
+                  농장에서 바로 배송되는 신선한 농산물을 만나보세요. 건강한
+                  식탁의 시작입니다.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -304,7 +304,7 @@ export default function Index() {
                     {product.organic && (
                       <Badge className="absolute top-3 right-3 bg-primary/10 text-primary">
                         <Leaf className="w-3 h-3 mr-1" />
-                        유기농
+                        신선
                       </Badge>
                     )}
                     <Button
@@ -342,7 +342,7 @@ export default function Index() {
                       className="w-full"
                       onClick={() => addToCart(product.id)}
                     >
-                      ���바구니 담기
+                      장바구니 담기
                     </Button>
                   </div>
                 </CardContent>
