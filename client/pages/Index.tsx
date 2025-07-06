@@ -362,7 +362,7 @@ export default function Index() {
               </div>
               <h4 className="text-xl font-semibold mb-2">무료 배송</h4>
               <p className="text-muted-foreground">
-                5만원 이상 주문 시 전국 무료 배송으로 신선하게 배달해드립니다.
+                5만원 이상 주문 시 전국 무료 배송으로 신선하��� 배달해드립니다.
               </p>
             </div>
             <div className="text-center">
@@ -378,9 +378,9 @@ export default function Index() {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Leaf className="w-8 h-8 text-primary" />
               </div>
-              <h4 className="text-xl font-semibold mb-2">유기농 인증</h4>
+              <h4 className="text-xl font-semibold mb-2">친환경 재배</h4>
               <p className="text-muted-foreground">
-                정부 인증 유기농 농장에서 생산된 안전하고 건강한 농산물입니다.
+                자연 친화적인 방법으로 재배된 신선하고 건강한 농산물입니다.
               </p>
             </div>
           </div>
