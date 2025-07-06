@@ -33,7 +33,7 @@ export default function Index() {
     },
     {
       id: 2,
-      name: "신선한 시금치",
+      name: "신선�� 시금치",
       price: "3,200원",
       originalPrice: "4,200원",
       image:
@@ -301,8 +301,12 @@ export default function Index() {
               >
                 <CardContent className="p-0">
                   <div className="relative">
-                    <div className="w-full h-48 bg-gradient-to-br from-green-50 to-green-100 rounded-t-lg flex items-center justify-center">
-                      <span className="text-6xl">🥬</span>
+                    <div className="w-full h-48 bg-gradient-to-br from-green-50 to-green-100 rounded-t-lg overflow-hidden">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
                     {product.discount && (
                       <Badge className="absolute top-3 left-3 bg-destructive text-destructive-foreground">
