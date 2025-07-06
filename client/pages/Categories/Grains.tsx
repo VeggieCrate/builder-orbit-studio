@@ -11,6 +11,20 @@ export default function Grains() {
 
   const grains = [
     {
+      name: "들깨",
+      price: "18,500원",
+      originalPrice: "23,000원",
+      rating: 4.9,
+      reviews: 76,
+    },
+    {
+      name: "땅콩",
+      price: "13,500원",
+      originalPrice: "17,000원",
+      rating: 4.7,
+      reviews: 145,
+    },
+    {
       name: "백태",
       price: "12,500원",
       originalPrice: "16,000원",
@@ -25,11 +39,39 @@ export default function Grains() {
       reviews: 89,
     },
     {
+      name: "옥수수",
+      price: "4,500원",
+      originalPrice: "6,000원",
+      rating: 4.6,
+      reviews: 189,
+    },
+    {
+      name: "옥수수수염",
+      price: "3,200원",
+      originalPrice: "4,200원",
+      rating: 4.4,
+      reviews: 43,
+    },
+    {
+      name: "옥수수쌀",
+      price: "8,800원",
+      originalPrice: "11,500원",
+      rating: 4.7,
+      reviews: 95,
+    },
+    {
       name: "줄강낭콩",
       price: "8,900원",
       originalPrice: "11,500원",
       rating: 4.6,
       reviews: 67,
+    },
+    {
+      name: "참깨",
+      price: "22,800원",
+      originalPrice: "28,000원",
+      rating: 4.8,
+      reviews: 112,
     },
     {
       name: "팥",
@@ -44,48 +86,6 @@ export default function Grains() {
       originalPrice: "8,500원",
       rating: 4.5,
       reviews: 78,
-    },
-    {
-      name: "옥수수",
-      price: "4,500원",
-      originalPrice: "6,000원",
-      rating: 4.6,
-      reviews: 189,
-    },
-    {
-      name: "옥수수쌀",
-      price: "8,800원",
-      originalPrice: "11,500원",
-      rating: 4.7,
-      reviews: 95,
-    },
-    {
-      name: "옥수수수염",
-      price: "3,200원",
-      originalPrice: "4,200원",
-      rating: 4.4,
-      reviews: 43,
-    },
-    {
-      name: "들깨",
-      price: "18,500원",
-      originalPrice: "23,000원",
-      rating: 4.9,
-      reviews: 76,
-    },
-    {
-      name: "참깨",
-      price: "22,800원",
-      originalPrice: "28,000원",
-      rating: 4.8,
-      reviews: 112,
-    },
-    {
-      name: "땅콩",
-      price: "13,500원",
-      originalPrice: "17,000원",
-      rating: 4.7,
-      reviews: 145,
     },
   ];
 

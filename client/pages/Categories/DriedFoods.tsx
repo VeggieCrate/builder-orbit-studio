@@ -11,6 +11,41 @@ export default function DriedFoods() {
 
   const driedFoods = [
     {
+      name: "가지고추",
+      price: "4,200원",
+      originalPrice: "5,500원",
+      rating: 4.6,
+      reviews: 112,
+    },
+    {
+      name: "감말랭이",
+      price: "8,500원",
+      originalPrice: "11,000원",
+      rating: 4.7,
+      reviews: 78,
+    },
+    {
+      name: "건고추",
+      price: "18,500원",
+      originalPrice: "23,000원",
+      rating: 4.8,
+      reviews: 95,
+    },
+    {
+      name: "곶감",
+      price: "12,000원",
+      originalPrice: "15,000원",
+      rating: 4.9,
+      reviews: 95,
+    },
+    {
+      name: "꽈리고추",
+      price: "3,800원",
+      originalPrice: "5,000원",
+      rating: 4.7,
+      reviews: 145,
+    },
+    {
       name: "말린 가지",
       price: "8,500원",
       originalPrice: "11,000원",
@@ -67,13 +102,6 @@ export default function DriedFoods() {
       reviews: 134,
     },
     {
-      name: "감말랭이",
-      price: "8,500원",
-      originalPrice: "11,000원",
-      rating: 4.7,
-      reviews: 78,
-    },
-    {
       name: "무청 시래기",
       price: "5,500원",
       originalPrice: "7,200원",
@@ -88,18 +116,11 @@ export default function DriedFoods() {
       reviews: 89,
     },
     {
-      name: "건고추",
-      price: "18,500원",
-      originalPrice: "23,000원",
-      rating: 4.8,
-      reviews: 95,
-    },
-    {
-      name: "홍고추",
-      price: "16,800원",
-      originalPrice: "21,000원",
-      rating: 4.7,
-      reviews: 76,
+      name: "아삭이고추",
+      price: "4,100원",
+      originalPrice: "5,400원",
+      rating: 4.5,
+      reviews: 98,
     },
     {
       name: "풋고추",
@@ -109,32 +130,11 @@ export default function DriedFoods() {
       reviews: 167,
     },
     {
-      name: "가지고추",
-      price: "4,200원",
-      originalPrice: "5,500원",
-      rating: 4.6,
-      reviews: 112,
-    },
-    {
-      name: "꽈리고추",
-      price: "3,800원",
-      originalPrice: "5,000원",
+      name: "홍고추",
+      price: "16,800원",
+      originalPrice: "21,000원",
       rating: 4.7,
-      reviews: 145,
-    },
-    {
-      name: "아삭이고추",
-      price: "4,100원",
-      originalPrice: "5,400원",
-      rating: 4.5,
-      reviews: 98,
-    },
-    {
-      name: "곶감",
-      price: "12,000원",
-      originalPrice: "15,000원",
-      rating: 4.9,
-      reviews: 95,
+      reviews: 76,
     },
   ];
 

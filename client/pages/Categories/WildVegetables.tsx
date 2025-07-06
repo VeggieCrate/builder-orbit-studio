@@ -95,6 +95,13 @@ export default function WildVegetables() {
       reviews: 54,
     },
     {
+      name: "모둠쌈채",
+      price: "5,200원",
+      originalPrice: "6,800원",
+      rating: 4.7,
+      reviews: 145,
+    },
+    {
       name: "미나리",
       price: "3,600원",
       originalPrice: "4,700원",
@@ -151,10 +158,10 @@ export default function WildVegetables() {
       reviews: 156,
     },
     {
-      name: "원추리",
-      price: "5,500원",
-      originalPrice: "7,200원",
-      rating: 4.6,
+      name: "알토란",
+      price: "7,500원",
+      originalPrice: "9,800원",
+      rating: 4.8,
       reviews: 67,
     },
     {
@@ -163,6 +170,20 @@ export default function WildVegetables() {
       originalPrice: "16,000원",
       rating: 4.9,
       reviews: 45,
+    },
+    {
+      name: "원추리",
+      price: "5,500원",
+      originalPrice: "7,200원",
+      rating: 4.6,
+      reviews: 67,
+    },
+    {
+      name: "월동추",
+      price: "4,800원",
+      originalPrice: "6,300원",
+      rating: 4.6,
+      reviews: 89,
     },
     {
       name: "참나물",
@@ -184,27 +205,6 @@ export default function WildVegetables() {
       originalPrice: "4,100원",
       rating: 4.5,
       reviews: 167,
-    },
-    {
-      name: "모둠쌈채",
-      price: "5,200원",
-      originalPrice: "6,800원",
-      rating: 4.7,
-      reviews: 145,
-    },
-    {
-      name: "월동추",
-      price: "4,800원",
-      originalPrice: "6,300원",
-      rating: 4.6,
-      reviews: 89,
-    },
-    {
-      name: "알토란",
-      price: "7,500원",
-      originalPrice: "9,800원",
-      rating: 4.8,
-      reviews: 67,
     },
   ];
 
