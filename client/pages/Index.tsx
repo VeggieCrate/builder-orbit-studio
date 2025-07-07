@@ -99,7 +99,7 @@ export default function Index() {
   const featuredProducts = [
     {
       id: 1,
-      name: "방울토마토",
+      name: "방울���마토",
       price: "6,500원",
       originalPrice: "8,500원",
       image:
@@ -289,7 +289,7 @@ export default function Index() {
               <form onSubmit={handleSearch} className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <Input
-                  placeholder="상��을 검색하세요"
+                  placeholder="상품을 검색하세요"
                   className="pl-10"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -626,7 +626,7 @@ export default function Index() {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Leaf className="w-8 h-8 text-primary" />
               </div>
-              <h4 className="text-xl font-semibold mb-2">친환경 재배</h4>
+              <h4 className="text-xl font-semibold mb-2">친환경 ���배</h4>
               <p className="text-muted-foreground">
                 자연 친화적인 방법으로 재배된 신선하고 건강한 농산물입니다.
               </p>
