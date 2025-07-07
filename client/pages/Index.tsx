@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ShoppingCart,
   Search,
@@ -23,6 +23,7 @@ export default function Index() {
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
@@ -31,6 +32,69 @@ export default function Index() {
       navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
+
+  // Special offer images for carousel
+  const specialOfferImages = [
+    {
+      image:
+        "https://images.pexels.com/photos/14657386/pexels-photo-14657386.jpeg",
+      name: "방울토마토",
+      emoji: "🍅",
+    },
+    {
+      image:
+        "https://images.pexels.com/photos/9070122/pexels-photo-9070122.jpeg",
+      name: "신선 배추",
+      emoji: "🥬",
+    },
+    {
+      image:
+        "https://images.pexels.com/photos/5713740/pexels-photo-5713740.jpeg",
+      name: "국산 당근",
+      emoji: "🥕",
+    },
+    {
+      image:
+        "https://images.pexels.com/photos/14015359/pexels-photo-14015359.jpeg",
+      name: "호박",
+      emoji: "🎃",
+    },
+    {
+      image:
+        "https://images.pexels.com/photos/9540184/pexels-photo-9540184.jpeg",
+      name: "곶감",
+      emoji: "🍊",
+    },
+    {
+      image:
+        "https://images.pexels.com/photos/15661866/pexels-photo-15661866.jpeg",
+      name: "말린 고추",
+      emoji: "🌶️",
+    },
+    {
+      image:
+        "https://images.pexels.com/photos/8557317/pexels-photo-8557317.jpeg",
+      name: "신선한 시금치",
+      emoji: "🥬",
+    },
+    {
+      image:
+        "https://images.pexels.com/photos/9540184/pexels-photo-9540184.jpeg",
+      name: "참외",
+      emoji: "🍈",
+    },
+  ];
+
+  // Carousel effect - rotate images every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % specialOfferImages.length,
+      );
+    }, 5000); // 5 seconds
+
+    return () => clearInterval(interval);
+  }, [specialOfferImages.length]);
 
   const featuredProducts = [
     {
@@ -157,7 +221,7 @@ export default function Index() {
       price: product.price,
       originalPrice: product.originalPrice,
       image: product.image,
-      category: "특가상품",
+      category: "특가상���",
     });
   };
 
@@ -318,10 +382,10 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-accent/20 to-secondary/30">
-        <div className="container px-4 py-16 md:py-24">
-          <div className="flex flex-col items-center text-center space-y-12">
-            <div className="space-y-6 max-w-4xl">
-              <div className="space-y-4">
+        <div className="container px-4 py-16 md:py-28">
+          <div className="flex flex-col items-center text-center space-y-20">
+            <div className="space-y-8 max-w-4xl">
+              <div className="space-y-6">
                 <h2 className="text-4xl md:text-6xl font-bold leading-tight">
                   <span className="text-primary">신선한</span>
                   <br />
@@ -335,12 +399,16 @@ export default function Index() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="text-lg px-8">
-                  지금 쇼핑하기
-                </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8">
-                  농장 둘러보기
-                </Button>
+                <Link to="/special-offers">
+                  <Button size="lg" className="text-lg px-8">
+                    지금 쇼핑하기
+                  </Button>
+                </Link>
+                <Link to="/categories">
+                  <Button variant="outline" size="lg" className="text-lg px-8">
+                    농장 둘러보기
+                  </Button>
+                </Link>
               </div>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 pt-4">
                 <div className="flex items-center gap-2">
@@ -357,15 +425,59 @@ export default function Index() {
                 </div>
               </div>
             </div>
-            <div className="relative max-w-2xl">
-              <div className="w-full h-80 md:h-96 bg-gradient-to-br from-green-100 to-green-200 rounded-3xl flex items-center justify-center">
-                <div className="text-8xl">🥬</div>
+
+            {/* Rotating Product Images */}
+            <div className="relative max-w-3xl w-full">
+              <div className="relative w-full h-96 md:h-[500px] bg-gradient-to-br from-green-50 to-green-100 rounded-3xl overflow-hidden shadow-2xl">
+                {/* Main rotating image */}
+                <img
+                  src={specialOfferImages[currentImageIndex].image}
+                  alt={specialOfferImages[currentImageIndex].name}
+                  className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
+                />
+
+                {/* Overlay gradient for better text visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+
+                {/* Product name overlay */}
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-lg">
+                    <div className="flex items-center gap-3">
+                      <span className="text-3xl">
+                        {specialOfferImages[currentImageIndex].emoji}
+                      </span>
+                      <div className="text-left">
+                        <h3 className="text-xl font-bold text-gray-800">
+                          {specialOfferImages[currentImageIndex].name}
+                        </h3>
+                        <p className="text-sm text-gray-600">오늘의 특가상품</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
-                <span className="text-2xl">🍎</span>
+
+              {/* Decorative floating elements */}
+              <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-primary rounded-2xl flex items-center justify-center shadow-xl animate-bounce">
+                <span className="text-3xl">🍎</span>
               </div>
-              <div className="absolute -top-6 -right-6 w-20 h-20 bg-accent rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-xl">🥕</span>
+              <div className="absolute -top-8 -right-8 w-24 h-24 bg-accent rounded-xl flex items-center justify-center shadow-xl animate-pulse">
+                <span className="text-2xl">🥕</span>
+              </div>
+
+              {/* Image indicators */}
+              <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex gap-2">
+                {specialOfferImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex
+                        ? "bg-primary scale-125"
+                        : "bg-gray-300 hover:bg-gray-400"
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>
