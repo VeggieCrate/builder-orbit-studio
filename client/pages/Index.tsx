@@ -221,7 +221,7 @@ export default function Index() {
       price: product.price,
       originalPrice: product.originalPrice,
       image: product.image,
-      category: "특가상���",
+      category: "특가상품",
     });
   };
 
@@ -289,7 +289,7 @@ export default function Index() {
               <form onSubmit={handleSearch} className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <Input
-                  placeholder="상품을 검색하세요"
+                  placeholder="상��을 검색하세요"
                   className="pl-10"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -490,7 +490,7 @@ export default function Index() {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4">카테고리별 쇼핑</h3>
             <p className="text-muted-foreground">
-              다양한 신선 농산물을 카���고리별로 만나보세요
+              다양한 신선 농산물을 카테고리별로 만나보세요
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -519,7 +519,7 @@ export default function Index() {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4">인기 상품</h3>
             <p className="text-muted-foreground">
-              가장 사랑받는 ���선 농산물들을 만나보세요
+              가장 사랑받는 신선 농산물들을 만나보세요
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
