@@ -661,24 +661,36 @@ export default function Index() {
               <h5 className="font-semibold mb-4">쇼핑</h5>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <Link
+                    to="/categories/fruits"
+                    className="hover:text-primary transition-colors"
+                  >
                     과일
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <Link
+                    to="/categories/vegetables"
+                    className="hover:text-primary transition-colors"
+                  >
                     채소
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <Link
+                    to="/categories/grains"
+                    className="hover:text-primary transition-colors"
+                  >
                     곡물
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <Link
+                    to="/categories/grains"
+                    className="hover:text-primary transition-colors"
+                  >
                     견과류
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
