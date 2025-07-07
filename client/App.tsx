@@ -17,6 +17,9 @@ import NewProducts from "./pages/NewProducts";
 import SearchResults from "./pages/SearchResults";
 import OutOfStock from "./pages/OutOfStock";
 import Orders from "./pages/Orders";
+import ShippingInfo from "./pages/ShippingInfo";
+import ReturnsExchange from "./pages/ReturnsExchange";
+import CustomerService from "./pages/CustomerService";
 import Vegetables from "./pages/Categories/Vegetables";
 import Fruits from "./pages/Categories/Fruits";
 import WildVegetables from "./pages/Categories/WildVegetables";
@@ -49,6 +52,9 @@ const App = () => (
                 <Route path="/search" element={<SearchResults />} />
                 <Route path="/out-of-stock" element={<OutOfStock />} />
                 <Route path="/orders" element={<Orders />} />
+                <Route path="/shipping-info" element={<ShippingInfo />} />
+                <Route path="/returns-exchange" element={<ReturnsExchange />} />
+                <Route path="/customer-service" element={<CustomerService />} />
                 <Route path="/categories/vegetables" element={<Vegetables />} />
                 <Route path="/categories/fruits" element={<Fruits />} />
                 <Route

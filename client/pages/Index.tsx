@@ -199,7 +199,7 @@ export default function Index() {
     { name: "채소", icon: "🥬", count: 24, link: "/categories/vegetables" },
     { name: "과일", icon: "🍎", count: 15, link: "/categories/fruits" },
     {
-      name: "나물/산채",
+      name: "나물/산��",
       icon: "🌿",
       count: 28,
       link: "/categories/wild-vegetables",
@@ -698,24 +698,36 @@ export default function Index() {
               <h5 className="font-semibold mb-4">고객 서비스</h5>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <Link
+                    to="/orders"
+                    className="hover:text-primary transition-colors"
+                  >
                     주문 조회
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <Link
+                    to="/shipping-info"
+                    className="hover:text-primary transition-colors"
+                  >
                     배송 정보
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <Link
+                    to="/returns-exchange"
+                    className="hover:text-primary transition-colors"
+                  >
                     반품/교환
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <Link
+                    to="/customer-service"
+                    className="hover:text-primary transition-colors"
+                  >
                     고객센터
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
