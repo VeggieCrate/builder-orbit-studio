@@ -245,8 +245,8 @@ export default function Index() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-accent/20 to-secondary/30">
         <div className="container px-4 py-16 md:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="flex flex-col items-center text-center space-y-12">
+            <div className="space-y-6 max-w-4xl">
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-6xl font-bold leading-tight">
                   <span className="text-primary">신선한</span>
@@ -255,12 +255,12 @@ export default function Index() {
                   <br />
                   <span className="text-primary">집까지</span>
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-md">
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   농장에서 바로 배송되는 신선한 농산물을 만나보세요. 건강한
                   식탁의 시작입니다.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="text-lg px-8">
                   지금 쇼핑하기
                 </Button>
@@ -268,7 +268,7 @@ export default function Index() {
                   농장 둘러보기
                 </Button>
               </div>
-              <div className="flex items-center gap-8 pt-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 pt-4">
                 <div className="flex items-center gap-2">
                   <Truck className="w-5 h-5 text-primary" />
                   <span className="text-sm font-medium">무료 배송</span>
@@ -283,8 +283,8 @@ export default function Index() {
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="w-full h-96 md:h-[500px] bg-gradient-to-br from-green-100 to-green-200 rounded-3xl flex items-center justify-center">
+            <div className="relative max-w-2xl">
+              <div className="w-full h-80 md:h-96 bg-gradient-to-br from-green-100 to-green-200 rounded-3xl flex items-center justify-center">
                 <div className="text-8xl">🥬</div>
               </div>
               <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
