@@ -21,11 +21,13 @@ import { useWishlist } from "@/contexts/WishlistContext";
 export default function Index() {
   const { state: cartState, addItem } = useCart();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const featuredProducts = [
     {
       id: 1,
-      name: "방울토마토",
+      name: "방울���마토",
       price: "6,500원",
       originalPrice: "8,500원",
       image:
@@ -183,30 +185,30 @@ export default function Index() {
               <h1 className="text-2xl font-bold text-primary">신선마켓</h1>
             </div>
             <nav className="hidden md:flex items-center gap-6">
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
                 홈
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/categories"
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
                 카테고리
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/special-offers"
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
                 특가상품
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/new-products"
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
                 신상품
-              </a>
+              </Link>
             </nav>
           </div>
 
@@ -214,12 +216,19 @@ export default function Index() {
             <div className="hidden md:flex items-center gap-2 max-w-sm">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                <Input placeholder="상품을 검색하세요" className="pl-10" />
+                <Input
+                  placeholder="상품을 검색하세요"
+                  className="pl-10"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
             </div>
-            <Button variant="ghost" size="icon">
-              <User className="w-5 h-5" />
-            </Button>
+            <Link to="/profile">
+              <Button variant="ghost" size="icon">
+                <User className="w-5 h-5" />
+              </Button>
+            </Link>
             <Link to="/wishlist">
               <Button variant="ghost" size="icon">
                 <Heart className="w-5 h-5" />
@@ -235,11 +244,68 @@ export default function Index() {
                 )}
               </Button>
             </Link>
-            <Button variant="ghost" size="icon" className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
               <Menu className="w-5 h-5" />
             </Button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden border-t bg-background">
+            <div className="container px-4 py-4 space-y-2">
+              <div className="relative mb-4">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                <Input
+                  placeholder="상품을 검색하세요"
+                  className="pl-10"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+              <Link
+                to="/"
+                className="block py-2 text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                홈
+              </Link>
+              <Link
+                to="/categories"
+                className="block py-2 text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                카테고리
+              </Link>
+              <Link
+                to="/special-offers"
+                className="block py-2 text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                특가상품
+              </Link>
+              <Link
+                to="/new-products"
+                className="block py-2 text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                신상품
+              </Link>
+              <Link
+                to="/profile"
+                className="block py-2 text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                내 정보
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}

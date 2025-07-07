@@ -10,6 +10,10 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
+import Profile from "./pages/Profile";
+import Categories from "./pages/Categories";
+import SpecialOffers from "./pages/SpecialOffers";
+import NewProducts from "./pages/NewProducts";
 import Vegetables from "./pages/Categories/Vegetables";
 import Fruits from "./pages/Categories/Fruits";
 import WildVegetables from "./pages/Categories/WildVegetables";
@@ -35,6 +39,10 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/wishlist" element={<Wishlist />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/categories" element={<Categories />} />
+                <Route path="/special-offers" element={<SpecialOffers />} />
+                <Route path="/new-products" element={<NewProducts />} />
                 <Route path="/categories/vegetables" element={<Vegetables />} />
                 <Route path="/categories/fruits" element={<Fruits />} />
                 <Route
