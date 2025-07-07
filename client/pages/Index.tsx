@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
 import { useWishlist } from "@/contexts/WishlistContext";
 
@@ -23,11 +23,19 @@ export default function Index() {
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   const featuredProducts = [
     {
       id: 1,
-      name: "방울���마토",
+      name: "방울토마토",
       price: "6,500원",
       originalPrice: "8,500원",
       image:
@@ -214,7 +222,7 @@ export default function Index() {
 
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center gap-2 max-w-sm">
-              <div className="relative flex-1">
+              <form onSubmit={handleSearch} className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <Input
                   placeholder="상품을 검색하세요"
@@ -222,7 +230,7 @@ export default function Index() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
-              </div>
+              </form>
             </div>
             <Link to="/profile">
               <Button variant="ghost" size="icon">
@@ -259,7 +267,7 @@ export default function Index() {
         {isMobileMenuOpen && (
           <div className="md:hidden border-t bg-background">
             <div className="container px-4 py-4 space-y-2">
-              <div className="relative mb-4">
+              <form onSubmit={handleSearch} className="relative mb-4">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <Input
                   placeholder="상품을 검색하세요"
@@ -267,7 +275,7 @@ export default function Index() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
-              </div>
+              </form>
               <Link
                 to="/"
                 className="block py-2 text-sm font-medium hover:text-primary transition-colors"

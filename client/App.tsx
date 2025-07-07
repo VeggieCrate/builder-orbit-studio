@@ -14,6 +14,8 @@ import Profile from "./pages/Profile";
 import Categories from "./pages/Categories";
 import SpecialOffers from "./pages/SpecialOffers";
 import NewProducts from "./pages/NewProducts";
+import SearchResults from "./pages/SearchResults";
+import OutOfStock from "./pages/OutOfStock";
 import Vegetables from "./pages/Categories/Vegetables";
 import Fruits from "./pages/Categories/Fruits";
 import WildVegetables from "./pages/Categories/WildVegetables";
@@ -43,6 +45,8 @@ const App = () => (
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/special-offers" element={<SpecialOffers />} />
                 <Route path="/new-products" element={<NewProducts />} />
+                <Route path="/search" element={<SearchResults />} />
+                <Route path="/out-of-stock" element={<OutOfStock />} />
                 <Route path="/categories/vegetables" element={<Vegetables />} />
                 <Route path="/categories/fruits" element={<Fruits />} />
                 <Route

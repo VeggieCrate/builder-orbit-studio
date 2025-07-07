@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
+import { useSearch } from "@/hooks/useSearch";
 
 interface CategoryHeaderProps {
   title: string;
@@ -19,6 +20,14 @@ export default function CategoryHeader({
   placeholder,
 }: CategoryHeaderProps) {
   const { state: cartState } = useCart();
+  const { performSearch } = useSearch();
+
+  const handleGlobalSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      performSearch(searchQuery);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
@@ -33,15 +42,23 @@ export default function CategoryHeader({
         </div>
         <div className="flex items-center gap-4">
           <div className="hidden md:flex items-center gap-2 max-w-sm">
-            <div className="relative flex-1">
+            <form onSubmit={handleGlobalSearch} className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 placeholder={placeholder}
                 className="pl-10"
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    if (searchQuery.trim()) {
+                      performSearch(searchQuery);
+                    }
+                  }
+                }}
               />
-            </div>
+            </form>
           </div>
           <Button variant="outline" size="icon">
             <Filter className="w-5 h-5" />
